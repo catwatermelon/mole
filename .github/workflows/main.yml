@@ -1,0 +1,17 @@
+name: MoleMessage
+
+on:
+  schedule:
+    - cron: "0 16 * * *" # 北京时间上午00:00
+  workflow_dispatch:
+jobs:
+  CheckIn:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: Run Project
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: |
+          npm run dev
