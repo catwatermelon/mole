@@ -15,7 +15,6 @@ const getGiftKey = () => {
       status: 2,
     };
     http.post("/tool/redeemCodeList", data).then((res) => {
-      console.log(res.data);
       const { code, data, message } = res.data;
       if(code == 200) {
           const result = data.reduce((f, item, index) => {
