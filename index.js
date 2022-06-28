@@ -19,7 +19,7 @@ const getGiftKey = () => {
     const { code, data, message } = res.data;
     let result = [];
     if(code == 200) {
-        result = data.map((item, index) => `${index+1}. 【${item.content}】：${item.reward}，有效率：${calcEfficiencyRate(item.sign_yes_count, item.sign_no_count)}，更新时间：${item.item.updated_at} \n`
+        result = data.map((item, index) => `${index+1}. 【${item.content}】：${item.reward}，有效率：${calcEfficiencyRate(item.sign_yes_count, item.sign_no_count)}，更新时间：${item.updated_at} \n`);
         pushMessage.pushResult(result);
     } else {
         pushMessage.pushResult(message);
