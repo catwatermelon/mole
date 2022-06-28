@@ -19,7 +19,7 @@ const getGiftKey = () => {
       const { code, data, message } = res.data;
       if(code == 200) {
           const result = data.reduce((f, item, index) => {
-            f += `${index+1}. 【${item.content}】：${item.reward}，有效率：${calcEfficiencyRate(item.sign_yes_count, item.sign_no_count)}，更新时间：${item.updated_at} \n`;
+            f += `${index+1}. 【${item.content}】：${item.reward}，有效率：${calcEfficiencyRate(item.sign_yes_count, item.sign_no_count)}，更新时间：${item.created_at.split(' ')[0]} \n`;
             return f;
           });
           pushMessage.pushResult(result);
