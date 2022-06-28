@@ -10,7 +10,7 @@ const getGiftKey = () => {
   const data = {
     chat_room_id: "1000050",
     copy_not_yet: 0,
-    limit: 100,
+    limit: 200,
     page: 0,
     status: 2,
   };
@@ -19,12 +19,7 @@ const getGiftKey = () => {
     const { code, data, message } = res.data;
     let result = [];
     if(code == 200) {
-        result = data.map(item => ({
-            key: item.content,
-            gift: item.reward,
-            useful: calcEfficiencyRate(item.sign_yes_count, item.sign_no_count),
-            updateTime: item.updated_at
-        }))
+        result = data.map((item, index) => `${index+1}. 【${item.content}】：${item.reward}，有效率：${calcEfficiencyRate(item.sign_yes_count, item.sign_no_count)}，更新时间：${item.item.updated_at} \n`
         pushMessage.pushResult(result);
     } else {
         pushMessage.pushResult(message);
