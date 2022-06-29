@@ -22,10 +22,8 @@ const getGiftKey = () => {
             return f;
           }, '');
           pushMessage.pushResult(result);
-          pushMessage.wechatResult(result);
       } else {
           pushMessage.pushResult(message);
-          pushMessage.wechatResult(result);
       }
     });
 };

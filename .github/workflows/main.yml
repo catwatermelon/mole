@@ -13,6 +13,5 @@ jobs:
       - name: Run Project
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          WECHAT_WEBSOCKET_HOOK: ${{ secrets.WECHAT_WEBSOCKET_HOOK }}
         run: |
           npm run dev

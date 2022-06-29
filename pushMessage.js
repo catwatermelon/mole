@@ -11,18 +11,4 @@ module.exports = {
             console.log(res.data);
         });
     },
-    wechatResult: (content) => {
-        const key = process.env.WECHAT_WEBSOCKET_HOOK;
-        if(!key) return;
-        const data = {
-            "msgtype": "text",
-            "text": {
-                content,
-                "mentioned_list":["@all"],
-            }
-        }
-        http.post(`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${key}`).then(res=>{
-            console.log(res.data);
-        });
-    }
 }
