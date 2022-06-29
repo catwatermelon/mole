@@ -22,33 +22,11 @@ const getGiftKey = () => {
             return f;
           }, '');
           pushMessage.pushResult(result);
+          pushMessage.wechatResult(result);
       } else {
           pushMessage.pushResult(message);
+          pushMessage.wechatResult(result);
       }
     });
-    
-  };
-<<<<<<< HEAD
-  http.post("/tool/redeemCodeList", data).then((res) => {
-    console.log(res.data);
-    const { code, data, message } = res.data;
-    let result = [];
-    if (code == 200) {
-      result = data.reduce((f, item, index) => {
-        f += `${index + 1}. 【${item.content}】：${
-          item.reward
-        }，有效率：${calcEfficiencyRate(
-          item.sign_yes_count,
-          item.sign_no_count
-        )}，更新时间：${item.updated_at} \n`;
-        return f;
-      });
-      pushMessage.pushResult(result);
-    } else {
-      pushMessage.pushResult(message);
-    }
-  });
 };
-=======
->>>>>>> 072de300e47c357cf709a4d4efd0633907ab0a39
 getGiftKey();
