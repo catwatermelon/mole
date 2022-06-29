@@ -8,7 +8,7 @@ module.exports = {
             title: `摩尔庄园推送`,
             content
         }).then(res => {
-            console.log(res);
+            console.log(res.data);
         });
     },
     wechatResult: (content) => {
@@ -21,6 +21,8 @@ module.exports = {
                 "mentioned_list":["@all"],
             }
         }
-        http.post(`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${key}`);
+        http.post(`https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=${key}`).then(res=>{
+            console.log(res.data);
+        });
     }
 }
